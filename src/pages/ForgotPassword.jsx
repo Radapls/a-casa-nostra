@@ -13,6 +13,7 @@
 
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
+import ImageAuth from '../components/ImageAuth';
 import OAuth from '../components/OAuth';
 
 export default function ForgotPassword() {
@@ -26,12 +27,8 @@ export default function ForgotPassword() {
     <section>
         <h1 className='text-3xl text-center mt-6 font-bold'>Forgot Password</h1>
         <div className='flex justify-center flex-wrap items-center px-6 py-12 max-w-6xl mx-auto'>
-            <div className='md:w-[67%] lg:w-[50%] mb-12 md:mb-6'>
-                <img
-                    draggable="false"
-                    className='w-full rounded-2xl'
-                    src="https://securityintelligence.com/wp-content/uploads/2018/10/si-advanced-authentication-feature.jpg" alt="Auth" />
-            </div>
+
+        <ImageAuth/>
 
             <div className='w-full md:w-[67%] lg:w-[40%] lg:ml-20'>
                 <form>
