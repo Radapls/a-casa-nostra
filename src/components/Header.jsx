@@ -25,7 +25,7 @@ export default function Header() {
     }
   return (
     <div className='bg-white border-b shadow-sm sticky top-0 z-50'>
-        <header className='flex justify-between items-center px-3 max-w-6xl mx-auto'>
+        <header className='flex justify-between items-center px-3 pt-2 max-w-6xl mx-auto'>
             <div>
                 <img
                     onClick={() => navigate("/")}
