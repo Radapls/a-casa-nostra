@@ -12,6 +12,8 @@
  */
 
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 import Header from './components/Header';
 import ForgotPassword from './pages/ForgotPassword';
 import Home from './pages/Home';
@@ -34,8 +36,19 @@ function App() {
             <Route path='/forgot-password' element={<ForgotPassword/>}/>
             <Route path='/offers' element={<Offers/>}/>
         </Routes>
-
      </Router>
+     <ToastContainer
+        position="bottom-center"
+        autoClose={3000}
+        hideProgressBar={false}
+        newestOnTop={false}
+        closeOnClick={true}
+        rtl={false}
+        pauseOnFocusLoss={false}
+        draggable={false}
+        pauseOnHover={false}
+        theme="light"
+        />
     </>
   );
 }
