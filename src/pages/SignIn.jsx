@@ -11,9 +11,10 @@
  * @date Monday, 9th January 2023
  */
 
+import { getAuth, signInWithEmailAndPassword } from 'firebase/auth';
 import React, { useState } from 'react';
 import { AiOutlineEye, AiOutlineEyeInvisible } from 'react-icons/ai';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import ImageAuth from '../components/ImageAuth';
 import OAuth from '../components/OAuth';
 
@@ -26,11 +27,30 @@ export default function SignIn() {
 
     const {email, password} = formData;
 
+    const navigate = useNavigate()
+
     function onChange(e){
         setFormData((prevState) => ({
             ...prevState,
             [e.target.id]: e.target.value
         }));
+    }
+
+    async function onSubmit(e) {
+        e.preventDefault()
+
+        try {
+            const auth = getAuth();
+            const userCredential = await signInWithEmailAndPassword(auth, email, password);
+
+            if (userCredential.user) {
+                navigate("/")
+            }
+
+
+        } catch (error) {
+            toString.error("Bad user credentials")
+        }
     }
   return (
     <section>
@@ -40,7 +60,7 @@ export default function SignIn() {
             <ImageAuth/>
 
             <div className='w-full md:w-[67%] lg:w-[40%] lg:ml-20'>
-                <form>
+                <form onSubmit={onSubmit}>
                     <input
                         className='mb-6 w-full px-4 py-2 text-xl text-gray-700 bg-white border-gray-300 rounded-lg transition ease-in-out'
                         type="email"
