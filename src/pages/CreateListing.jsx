@@ -199,7 +199,11 @@ export default function CreateListing() {
                 <p className='text-lg font-semibold'>Images</p>
                 <p className='text-gray-600'>The first image will be the cover (max 6)</p>
 
-                <input type="file" id="images" onChange={onChange} accept='.jpg, .png, .jpeg' className='w-full px-3 py-1.5 text-gray-700 bg-white border border-gray-300 rounded-xl transition duration-150 ease-in-out focus:bg-white focus:border-slate-600 file:bg-gray-700 file:text-white file:text-xs file:font-semibold file:rounded-lg file:p-3 file:uppercase file:border-none'/>
+                <input type="file" id="images" onChange={onChange} accept='.jpg, .png, .jpeg'
+                className='w-full text-gray-700 border-gray-300 rounded-xl font-semibold
+                transition duration-150 ease-in-out focus:bg-white focus:border-slate-600 text-sm text-grey-500
+                file:mr-5 file:py-2 file:px-6 file:rounded-xl file:border-0 file:text-sm file:font-medium
+                file:bg-slate-600 file:text-white hover:file:cursor-pointer hover:file:bg-slate-800'/>
             </div>
 
             <button type="submit" className='mb-6 w-full px-7 py-3 bg-blue-600 text-white rounded-xl font-semibold text-sm uppercase shadow-md hover:bg-blue-700 hover:shadow-lg focus:bg-blue-700 focus:shadow-lg active:bg-blue-800 active:shadow-lg transition duration-150 ease-in-out'>Create Listing</button>
