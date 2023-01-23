@@ -178,12 +178,16 @@ export default function Listing() {
                         <Marker
                             position={[listing.geoLocation.lat, listing.geoLocation.lng]}>
                         <Popup>
-                        A pretty CSS3 popup. <br /> Easily customizable.
+                       {listing.address}
                         </Popup>
                     </Marker>
                 </MapContainer>
             </div>
+
         </div>
     </main>
   )
 }
+
+
+// TODO: Create a map component outside the page
