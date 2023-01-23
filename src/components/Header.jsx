@@ -44,9 +44,9 @@ export default function Header() {
             <div>
                 <img
                     onClick={() => navigate("/")}
-                    className="h-12 cursor-pointer"
+                    className="h-8 cursor-pointer"
                     draggable="false"
-                    src="https://tributaryre.com/wp-content/uploads/2021/08/tributary-mountains-01.png" alt="Logo" />
+                    src={require('../assets/images/logo-no-background.png')} alt="Logo" />
             </div>
             <div>
                 <ul className='flex space-x-10'>
