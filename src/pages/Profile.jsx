@@ -31,7 +31,8 @@ export default function Profile() {
     const [loading, setLoading] = useState(true);
     const [formData, setFormData] = useState({
         name: auth.currentUser.displayName,
-        email: auth.currentUser.email
+        email: auth.currentUser.email,
+        profilePic: auth.currentUser.photoURL
     });
 
     function onLogOut() {
@@ -39,7 +40,7 @@ export default function Profile() {
         navigate("/")
     };
 
-    const {name, email} = formData
+    const {name, email, profilePic} = formData
 
     function onChange(e) {
         setFormData((prevState)=> ({
@@ -112,6 +113,12 @@ export default function Profile() {
         <h1 className='text-3xl text-center font-bold mt-6'>My Profile</h1>
         <div className='w-full md:w-[50%] mt-6 px-3'>
             <form>
+
+                <div className='flex justify-center items-center mb-6'>
+                    <img className='rounded-[50%] sm:w-[100px] md:w-[150px] lg:w-[250px] xl:w-[250px]'
+                        src={profilePic} alt="" />
+                </div>
+
                 <input
                     type="text"
                     id='name'
