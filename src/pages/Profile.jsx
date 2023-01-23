@@ -116,7 +116,8 @@ export default function Profile() {
 
                 <div className='flex justify-center items-center mb-6'>
                     <img className='rounded-[50%] sm:w-[100px] md:w-[150px] lg:w-[250px] xl:w-[250px]'
-                        src={profilePic} alt="" />
+                        src={profilePic} alt=""
+                        draggable="false" />
                 </div>
 
                 <input
