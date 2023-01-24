@@ -6,23 +6,25 @@
  * This file, project or its parts can not be copied and/or distributed without
  * the express permission of Juan Felipe Rada.
  *
- * @file Offers.jsx
+ * @file Category.jsx
  * @author Juan Felipe Rada <radapls8@gmail.com>
- * @date Monday, 9th January 2023
+ * @date Tuesday, 24th January 2023
  */
 
 import { collection, getDocs, limit, orderBy, query, startAfter, where } from "firebase/firestore";
 import { useEffect, useState } from "react";
+import { useParams } from 'react-router-dom';
 import { toast } from "react-toastify";
 import ListingItem from "../components/ListingItem";
 import Spinner from "../components/Spinner";
 import { db } from "../firebase";
 
-export default function Offers() {
+export default function Category() {
 
   const [listings, setListings] = useState(null);
   const [loading, setLoading] = useState(true);
   const [lastFetchedListing, setLastFetchListing] = useState(null);
+  const params = useParams();
 
   useEffect(() => {
     async function fetchListings() {
@@ -30,7 +32,7 @@ export default function Offers() {
         const listingRef = collection(db, "listings");
         const q = query(
           listingRef,
-          where("offer", "==", true),
+          where("type", "==", params.categoryName ),
           orderBy("timestamp", "desc"),
           limit(8)
         );
@@ -52,14 +54,14 @@ export default function Offers() {
     }
 
     fetchListings();
-  }, []);
+  }, [ params.categoryName]);
 
   async function onFetchMoreListings() {
     try {
       const listingRef = collection(db, "listings");
       const q = query(
         listingRef,
-        where("offer", "==", true),
+        where("type", "==", params.categoryName),
         orderBy("timestamp", "desc"),
         startAfter(lastFetchedListing),
         limit(4)
@@ -83,7 +85,7 @@ export default function Offers() {
 
   return (
     <div className="max-w-6xl mx-auto px-3">
-      <h1 className="text-3xl text-center mt-6 font-bold mb-6">Offers</h1>
+      <h1 className="text-3xl text-center mt-6 font-bold mb-6">{params.categoryName === "rent" ? "Places for rent" : "Places for sale"}</h1>
       {loading ? (
         <Spinner />
       ) : listings && listings.length > 0 ? (
