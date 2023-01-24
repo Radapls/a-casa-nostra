@@ -15,11 +15,11 @@ import React from 'react';
 
 export default function ImageAuth() {
     return (
-      <div className='md:w-[67%] lg:w-[50%] mb-12 md:mb-6'>
+      <div className='md:w-[67%] lg:w-[50%] mb-12 md:mb-6 object-contain'>
       <img
           draggable="false"
           className='w-full rounded-2xl'
-          src="https://securityintelligence.com/wp-content/uploads/2018/10/si-advanced-authentication-feature.jpg" alt="Auth" />
+          src={require('../assets/images/auth-image.png')} alt="Auth" />
   </div>
     )
   }

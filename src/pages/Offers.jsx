@@ -82,7 +82,7 @@ export default function Offers() {
   }
 
   return (
-    <div className="max-w-6xl mx-auto px-3">
+    <div className="max-w-6xl mx-auto px-3 mb-6">
       <h1 className="text-3xl text-center mt-6 font-bold mb-6">Offers</h1>
       {loading ? (
         <Spinner />
@@ -103,7 +103,7 @@ export default function Offers() {
             <div className="flex justify-center items-center">
               <button
                 onClick={onFetchMoreListings}
-                className="bg-white px-3 py-1.5 text-gray-700 border border-gray-300 mb-6 mt-6 hover:border-slate-600 rounded transition duration-150 ease-in-out">
+                className="font-semibold bg-white px-3 py-1.5 text-gray-700 border border-gray-300 mb-6 mt-6 hover:border-slate-600 rounded transition duration-150 ease-in-out">
                 Load more
               </button>
             </div>

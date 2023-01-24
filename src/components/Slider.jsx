@@ -76,11 +76,11 @@ export default function Slider() {
                 }}
                 className="relative w-full h-[300px] overflow-hidden">
             </div>
-            <p className='text-[#f1faee] absolute left-1 top-3 font-semibold max-w-[90%] bg-[#457b9d] shadow-lg rounded-md p-2 opacity-90'>
+            <p className='text-[#f1faee] absolute left-1 top-3 font-semibold max-w-[90%] bg-[#457b9d] shadow-lg rounded-br-3xl p-2 opacity-90'>
                 {data.name}</p>
-            <p className='text-[#f1faee] absolute left-1 bottom-1 font-bold max-w-[90%] bg-[#e63946] shadow-lg rounded-tr-3xl p-2 opacity-90' >
+            <p className='text-[#f1faee] absolute right-1 bottom-1 font-bold max-w-[90%] bg-[#e63946] shadow-lg rounded-tl-3xl p-2 opacity-90' >
                 ${NumberToMoney(data.discountedPrice ?? data.regularPrice)}
-                {data.type === "rent" && "/ month"}
+                {data.type === "rent" && " / month"}
                 </p>
             </SwiperSlide>
             ))}

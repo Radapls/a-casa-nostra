@@ -46,8 +46,6 @@ export default function OAuth() {
             }
 
             navigate("/")
-            toast.success("User authenticate with success")
-
 
         } catch (error) {
           toast.error("Could not authorize with Google")

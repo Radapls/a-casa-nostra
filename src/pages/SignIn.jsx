@@ -15,6 +15,7 @@ import { getAuth, signInWithEmailAndPassword } from 'firebase/auth';
 import React, { useState } from 'react';
 import { AiOutlineEye, AiOutlineEyeInvisible } from 'react-icons/ai';
 import { Link, useNavigate } from 'react-router-dom';
+import { toast } from 'react-toastify';
 import ImageAuth from '../components/ImageAuth';
 import OAuth from '../components/OAuth';
 
@@ -49,7 +50,7 @@ export default function SignIn() {
 
 
         } catch (error) {
-            toString.error("Bad user credentials")
+            toast.error("Bad user credentials")
         }
     }
   return (

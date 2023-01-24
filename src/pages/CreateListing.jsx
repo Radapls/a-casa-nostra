@@ -316,33 +316,33 @@ export default function CreateListing() {
             </div>
 
 
-                <div className='flex mb-6 space-x-6'>
-                <div>
-                    <p className='text-lg font-semibold'> Regular price</p>
+                <div className='flex mb-6 space-x-3'>
+                    <div className='w-full'>
+                        <p className='text-lg font-semibold'> Regular price</p>
 
-                    <div>
-                    <input
-                        type="number"
-                        id="regularPrice"
-                        value={regularPrice}
-                        onChange={onChange}
-                        min="50"
-                        max="4000000"
-                        required
-                        className='w-full text-center px-4 py-2 text-xl text-gray-700 bg-white border border-gray-300 rounded-xl transition duration-150 ease-in-out focus:text-gray-700 focus:bg-white focus:border-slate-600'/>
-                        {type === "rent" && (
-                            <div className=''>
-                                <p className='text-md w-full whitespace-nowrap font-semibold'>
-                                $ / Month
-                                </p>
-                            </div>
-                        )}
+                        <div>
+                        <input
+                            type="number"
+                            id="regularPrice"
+                            value={regularPrice}
+                            onChange={onChange}
+                            min="50"
+                            max="4000000"
+                            required
+                            className='w-full text-center px-4 py-2 text-xl text-gray-700 bg-white border border-gray-300 rounded-xl transition duration-150 ease-in-out focus:text-gray-700 focus:bg-white focus:border-slate-600'/>
+                            {type === "rent" && (
+                                <div className=''>
+                                    <p className='text-md w-full whitespace-nowrap font-semibold'>
+                                    $ / Month
+                                    </p>
+                                </div>
+                            )}
+                        </div>
                     </div>
-                </div>
 
-                </div>
+
                 {offer  && (
-                    <div>
+                    <div  className='w-full'>
                     <p className='text-lg font-semibold'> Discount price</p>
                     <input
                         type="number"
@@ -362,6 +362,7 @@ export default function CreateListing() {
                         )}
                     </div>
             )}
+            </div>
 
             <div className='mb-6'>
                 <p className='text-lg font-semibold'>Images</p>
