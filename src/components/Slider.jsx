@@ -18,6 +18,7 @@ import SwiperCore, { Autoplay, EffectFade, Navigation, Pagination } from 'swiper
 import "swiper/css/bundle";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { db } from '../firebase';
+import { NumberToMoney } from '../pipes/NumberToMoney';
 import Spinner from './Spinner';
 
 export default function Slider() {
@@ -78,8 +79,7 @@ export default function Slider() {
             <p className='text-[#f1faee] absolute left-1 top-3 font-semibold max-w-[90%] bg-[#457b9d] shadow-lg rounded-md p-2 opacity-90'>
                 {data.name}</p>
             <p className='text-[#f1faee] absolute left-1 bottom-1 font-bold max-w-[90%] bg-[#e63946] shadow-lg rounded-tr-3xl p-2 opacity-90' >
-                ${(data.discountedPrice ?? data.regularPrice).toString()
-                        .replace(/\B(?=(\d{3})+(?!\d))/g, ",")}
+                ${NumberToMoney(data.discountedPrice ?? data.regularPrice)}
                 {data.type === "rent" && "/ month"}
                 </p>
             </SwiperSlide>

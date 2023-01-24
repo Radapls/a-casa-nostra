@@ -15,6 +15,7 @@ import React from 'react';
 import { MdDelete, MdEdit, MdLocationOn } from "react-icons/md";
 import Moment from 'react-moment';
 import { Link } from 'react-router-dom';
+import { NumberToMoney } from '../pipes/NumberToMoney';
 
 export default function ListingItem({listing, id, onEdit, onDelete}) {
   return (
@@ -36,12 +37,10 @@ export default function ListingItem({listing, id, onEdit, onDelete}) {
                 <p className='font-semibold mt-2 text-xl m-0 truncate' >{listing.name}</p>
                 <p className='text-[#457b9d] mt-2 font-semibold'>$
                     {listing.offer
-                    ? listing.discountedPrice
-                        .toString()
-                        .replace(/\B(?=(\d{3})+(?!\d))/g, ",")
-                    : listing.regularPrice
-                    .toString()
-                    .replace(/\B(?=(\d{3})+(?!\d))/g, ",")}
+                    ? NumberToMoney(listing.discountedPrice)
+
+                    : NumberToMoney(listing.regularPrice)
+                    }
                     {listing.type === "rent" && "/ month"}
                 </p>
                 <div className='flex items-center mt-[10px] space-x-3' >

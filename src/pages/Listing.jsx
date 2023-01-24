@@ -26,6 +26,7 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import Contact from '../components/Contact';
 import Spinner from "../components/Spinner";
 import { db } from '../firebase';
+import { NumberToMoney } from '../pipes/NumberToMoney';
 
 
 export default function Listing() {
@@ -93,12 +94,8 @@ export default function Listing() {
                 <p className="text-2xl font-bold mb-3 text-blue-900 ">
                     {listing.name } - $ {""}
                     {listing.offer
-                    ? listing.discountedPrice
-                        .toString()
-                        .replace(/\B(?=(\d{3})+(?!\d))/g, ",")
-                    : listing.regularPrice
-                        .toString()
-                        .replace(/\B(?=(\d{3})+(?!\d))/g, ",")}
+                    ? NumberToMoney(listing.discountedPrice)
+                    : NumberToMoney(listing.regularPrice)}
                         {listing.type === "rent" ? "/ month" : ""}
                 </p>
                 <p className='flex items-center mt-6 mb-3 font-semibold' >
@@ -112,8 +109,7 @@ export default function Listing() {
                         </p>
                         {listing.offer && (
                         <p className="w-full max-w-[200px] bg-green-800 rounded-md p-1 text-white text-center font-semibold shadow-md">
-                            ${(+listing.regularPrice - +listing.discountedPrice).toString()
-                        .replace(/\B(?=(\d{3})+(?!\d))/g, ",")} discount
+                            ${NumberToMoney(+listing.regularPrice - +listing.discountedPrice)} discount
                         </p>
                         )}
                     </div>
