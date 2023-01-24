@@ -40,26 +40,26 @@ export default function Header() {
     }
   return (
     <div className='bg-white border-b shadow-sm sticky top-0 z-50'>
-        <header className='flex justify-between items-center px-3 pt-2 max-w-6xl mx-auto'>
+        <header className='flex justify-between 2xs:justify-between 4xs:justify-center flex-wrap 2xs:flex-wrap 4xs:flex-wrap items-center px-3 pt-2 max-w-6xl mx-auto '>
             <div>
                 <img
                     onClick={() => navigate("/")}
-                    className="h-8 cursor-pointer"
+                    className="h-8 cursor-pointer object-contain"
                     draggable="false"
                     src={require('../assets/images/logo-no-background.png')} alt="Logo" />
             </div>
             <div>
                 <ul className='flex space-x-10'>
-                    <li className={`cursor-pointer py-3 text-sm font-semibold text-gray-400 border-b-[4px] border-b-transparent
+                    <li className={`cursor-pointer sm:py-3 4xs:py-1 text-sm font-semibold text-gray-400 border-b-[4px] border-b-transparent
                     ${pathMatchRoute('/') && "text-black border-b-red-500"}`
                     }
                     onClick={() => navigate("/")}>Home</li>
 
-                    <li className={`cursor-pointer py-3 text-sm font-semibold text-gray-400 border-b-[4px] border-b-transparent
+                    <li className={`cursor-pointer sm:py-3 4xs:py-1 text-sm font-semibold text-gray-400 border-b-[4px] border-b-transparent
                     ${pathMatchRoute('/offers') && "text-black border-b-red-500"}`}
                     onClick={() => navigate("/offers")}>Offers</li>
 
-                    <li className={`cursor-pointer py-3 text-sm font-semibold text-gray-400 border-b-[4px] border-b-transparent
+                    <li className={`cursor-pointer sm:py-3 4xs:py-1 text-sm font-semibold text-gray-400 border-b-[4px] border-b-transparent
                     ${(pathMatchRoute('/sign-in')  || pathMatchRoute("/profile")) && "text-black border-b-red-500"}`}
                     onClick={() => navigate("/profile")}>{pageState}</li>
                 </ul>
