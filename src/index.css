@@ -16,3 +16,11 @@ body{
 }
 
 /* TODO: Check the colors */
+
+html::-webkit-scrollbar{
+    display: none;
+}
+
+html{
+    scrollbar-width: none;
+}
